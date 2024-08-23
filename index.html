@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FBISE | Result Announcement</title>
+    <!--<link rel="stylesheet" href="styles.css">-->
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background: #fff;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #2c3e50;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-top: 0;
+}
+
+p {
+    font-size: 1.3em;
+    color: #666;
+}
+
+.date-time {
+    font-size: 1.5em;
+    color: #2c3e50;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.countdown {
+    margin-top: 30px;
+}
+
+#timer {
+    font-size: 2em;
+    color: #e74c3c;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="image/fbise_logo_3d.png" alt="FBISE Logo" class="logo">
+            <h2>Federal Board of Intermediate and Secondary Education Islamabad</h2>
+        </header>
+        <h3>HSSC (Part I&II) ANNUAL EXAMINATIONS 2024</h3>
+        <h3>Result Announcement</h3>
+        <p>The results will be declared on:</p>
+        <p class="date-time">August 23, 2024 at 11:00 AM</p>
+        <div class="countdown">
+            <p>Time left until results:</p>
+            <p id="timer"></p>
+        </div>
+    </div>
+
+    <script>
+        function countdown() {
+            const resultDate = new Date("August 23, 2024 11:00:00").getTime();
+            const now = new Date().getTime();
+            const distance = resultDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                document.getElementById("timer").innerHTML = "The results have been declared!";
+            }
+        }
+
+        setInterval(countdown, 1000);
+    </script>
+</body>
+</html>
